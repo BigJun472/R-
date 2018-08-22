@@ -1,0 +1,3 @@
+##用R语言对基因id的类型做一个转换
+DEG.entrze_id=mapIds(X=org.Hs.eg.db,keys=DEG.gene_symbol,keytype="SYMBOL",coloum="ENTREZID")
+##用mapIDS这个函数将gene symbol转换成为entrezid##
