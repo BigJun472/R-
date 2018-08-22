@@ -1,0 +1,22 @@
+# R-
+#R:GO、KEGG analysis
+##included packages:
+
+source("http://bioconductor.org/bioclite.R")
+bioclite("clusterProfiler")
+bioclite("topGO")
+bioclite("Rgraphviz")
+bioclite("pathview")
+bioclite("org.Hs.eg.db")##基因注释是人
+
+#loda above packages
+library(clusterProfiler)
+library(topGO)
+library(Rgraphviz)
+library(pathview)
+library(org.Hs.eg.db)
+
+#GO analysis
+DEG.gene_symbol=as character(output.gene_id$gene_id)
+erich.go.BP=enrichGO(gene=DEG.gene_symbol,OrgDb=org.Hs.eg.db,
+keyType="SYMBOL",ont="BP",pvalueCutoff=0.01,qvalueCutoff=0.05,readable=T)#enrichGO是功能富集的函数，orgdb选定是人的注释数据库，基因名类型是symbol,可以通过coloum(org.Hs.eg.db)来查看有多少种基因名类型，根据自己差异基因名的类型选取一种即可，ont 选择是做BP的分析，最后确定cutoff值，p and q#
