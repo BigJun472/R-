@@ -1,3 +1,8 @@
 ##用R语言对基因id的类型做一个转换
+
 DEG.entrze_id=mapIds(X=org.Hs.eg.db,keys=DEG.gene_symbol,keytype="SYMBOL",coloum="ENTREZID")
+
 ##用mapIDS这个函数将gene symbol转换成为entrezid##
+##对于转换失败的ID会显示为NA，这时可用na.omit函数将NA值去掉
+
+DEG.entrze_id=na.omit(DEG.entrze_id)
